@@ -54,3 +54,4 @@ Inline-style:
 - [ ] Use liveview instead of separate react frontend
 - [ ] Track a truck's changing menu over time
 - [ ] I need to make sure locations and menu items access are scoped to the truck they belong to
+- [ ] It is a good idea to add pagionation to the index endpoints

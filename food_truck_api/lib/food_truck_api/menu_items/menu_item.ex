@@ -2,6 +2,7 @@ defmodule FoodTruckApi.MenuItems.MenuItem do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @derive {Jason.Encoder, except: [:truck, :__meta__]}
   schema "menu_items" do
     field :item_name, :string
 

@@ -16,10 +16,12 @@ defmodule FoodTruckApi.TrucksFixtures do
         lot: "some lot",
         name: "some name",
         status: "some status",
-        type: "some type"
+        type: "some type",
+        locations: [],
+        menu_items: []
       })
       |> FoodTruckApi.Trucks.create_truck()
 
-    truck
+    truck |> FoodTruckApi.Repo.preload([:locations, :menu_items])
   end
 end

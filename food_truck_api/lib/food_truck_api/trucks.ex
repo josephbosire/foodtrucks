@@ -35,8 +35,17 @@ defmodule FoodTruckApi.Trucks do
       ** (Ecto.NoResultsError)
 
   """
-  def get_truck!(id), do: Repo.get!(Truck, id)
+  def get_truck!(id) do
+    Truck
+    |> Repo.get!(id)
+    |> Repo.preload(:locations)
+    |> Repo.preload(:menu_items)
+  end
 
+  @spec create_truck(
+          :invalid
+          | %{optional(:__struct__) => none(), optional(atom() | binary()) => any()}
+        ) :: any()
   @doc """
   Creates a truck.
 

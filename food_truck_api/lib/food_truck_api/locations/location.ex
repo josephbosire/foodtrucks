@@ -3,6 +3,7 @@ defmodule FoodTruckApi.Locations.Location do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @derive {Jason.Encoder, except: [:truck, :__meta__]}
   schema "locations" do
     field :status, :string
     field :latitude, :decimal

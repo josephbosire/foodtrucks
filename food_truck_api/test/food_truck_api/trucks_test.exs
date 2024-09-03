@@ -12,7 +12,8 @@ defmodule FoodTruckApi.TrucksTest do
 
     test "list_trucks/0 returns all trucks" do
       truck = truck_fixture()
-      assert Trucks.list_trucks() == [truck]
+      id = truck.id
+      assert [%{id: ^id}] = Trucks.list_trucks()
     end
 
     test "get_truck!/1 returns the truck with given id" do
@@ -21,7 +22,14 @@ defmodule FoodTruckApi.TrucksTest do
     end
 
     test "create_truck/1 with valid data creates a truck" do
-      valid_attrs = %{block: "some block", name: "some name", status: "some status", type: "some type", address: "some address", lot: "some lot"}
+      valid_attrs = %{
+        block: "some block",
+        name: "some name",
+        status: "some status",
+        type: "some type",
+        address: "some address",
+        lot: "some lot"
+      }
 
       assert {:ok, %Truck{} = truck} = Trucks.create_truck(valid_attrs)
       assert truck.block == "some block"
@@ -38,7 +46,15 @@ defmodule FoodTruckApi.TrucksTest do
 
     test "update_truck/2 with valid data updates the truck" do
       truck = truck_fixture()
-      update_attrs = %{block: "some updated block", name: "some updated name", status: "some updated status", type: "some updated type", address: "some updated address", lot: "some updated lot"}
+
+      update_attrs = %{
+        block: "some updated block",
+        name: "some updated name",
+        status: "some updated status",
+        type: "some updated type",
+        address: "some updated address",
+        lot: "some updated lot"
+      }
 
       assert {:ok, %Truck{} = truck} = Trucks.update_truck(truck, update_attrs)
       assert truck.block == "some updated block"
