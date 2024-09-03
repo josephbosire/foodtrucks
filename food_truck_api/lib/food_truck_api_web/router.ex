@@ -7,5 +7,10 @@ defmodule FoodTruckApiWeb.Router do
 
   scope "/api", FoodTruckApiWeb do
     pipe_through :api
+
+    resources "/trucks", TruckController do
+      resources "/locations", LocationController
+      resources "/menu_items", MenuItemController
+    end
   end
 end

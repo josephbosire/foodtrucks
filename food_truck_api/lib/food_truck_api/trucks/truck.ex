@@ -10,6 +10,8 @@ defmodule FoodTruckApi.Trucks.Truck do
     field :address, :string
     field :lot, :string
 
+    has_many :locations, FoodTruckApi.Locations.Location
+    has_many :menu_items, FoodTruckApi.MenuItems.MenuItem
     timestamps(type: :utc_datetime)
   end
 

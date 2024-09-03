@@ -15,7 +15,6 @@ defmodule FoodTruckApiWeb.TruckController do
     with {:ok, %Truck{} = truck} <- Trucks.create_truck(truck_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", ~p"/api/trucks/#{truck}")
       |> render(:show, truck: truck)
     end
   end

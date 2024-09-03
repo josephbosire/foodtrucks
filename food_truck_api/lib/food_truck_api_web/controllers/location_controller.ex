@@ -11,11 +11,12 @@ defmodule FoodTruckApiWeb.LocationController do
     render(conn, :index, locations: locations)
   end
 
-  def create(conn, %{"location" => location_params}) do
+  def create(conn, %{"location" => location_params, "truck_id" => truck_id}) do
+    location_params = Map.put(location_params, "truck_id", truck_id)
+
     with {:ok, %Location{} = location} <- Locations.create_location(location_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", ~p"/api/locations/#{location}")
       |> render(:show, location: location)
     end
   end

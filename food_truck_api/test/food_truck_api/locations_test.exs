@@ -10,6 +10,11 @@ defmodule FoodTruckApi.LocationsTest do
 
     @invalid_attrs %{status: nil, latitude: nil, longitude: nil}
 
+    setup do
+      truck = FoodTruckApi.TrucksFixtures.truck_fixture()
+      {:ok, truck: truck}
+    end
+
     test "list_locations/0 returns all locations" do
       location = location_fixture()
       assert Locations.list_locations() == [location]
@@ -20,8 +25,13 @@ defmodule FoodTruckApi.LocationsTest do
       assert Locations.get_location!(location.id) == location
     end
 
-    test "create_location/1 with valid data creates a location" do
-      valid_attrs = %{status: "some status", latitude: "120.5", longitude: "120.5"}
+    test "create_location/1 with valid data creates a location", %{truck: truck} do
+      valid_attrs = %{
+        status: "some status",
+        latitude: "120.5",
+        longitude: "120.5",
+        truck_id: truck.id
+      }
 
       assert {:ok, %Location{} = location} = Locations.create_location(valid_attrs)
       assert location.status == "some status"

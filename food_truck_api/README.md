@@ -52,3 +52,5 @@ Inline-style:
 - [ ] Add better parsing logic for menu items
 - [ ] Add data model to support truck work hours/schedules
 - [ ] Use liveview instead of separate react frontend
+- [ ] Track a truck's changing menu over time
+- [ ] I need to make sure locations and menu items access are scoped to the truck they belong to
