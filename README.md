@@ -44,7 +44,8 @@ Truck ||--o{ Menu: has_many
 ```
 
 ## Design
-Inline-style: 
+
+Inline-style:
 ![alt text](FoodTruckTours.png "Flow Chart")
 
 ## Future Work
@@ -55,3 +56,39 @@ Inline-style:
 - [ ] Track a truck's changing menu over time
 - [ ] I need to make sure locations and menu items access are scoped to the truck they belong to
 - [ ] It is a good idea to add pagionation to the index endpoints
+- [ ] Create a clustering algoirthm to dynamically generate the tour routes based on the user's preference and truck current location
+
+## Tech Stack
+
+- Elixir
+- Phoenix
+- Ecto
+- PostgreSQL
+- LiveView
+- Tailwind CSS
+- Next Js
+
+## Running the App
+
+### You will need
+
+- To have access to a postgres database
+
+### Running the Backend
+
+- cd into the `food_truck_api` directory
+- run `mix deps.get` to install dependencies
+- Update the `config/dev.exs` file with your postgres database credentials
+- run `mix ecto.create` to create the database
+- run `mix ecto.migrate` to migrate the database
+- run `iex -S mix phx.server` to start the server
+
+#### Testing the backend
+
+- Run `mix test` to run the tests
+
+### Running the Frontend
+
+- cd into the `food_tour_ui` directory
+- run `npm install` to install dependencies
+- run `npm run dev` to start the server

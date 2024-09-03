@@ -18,7 +18,7 @@ defmodule FoodTruckApi.Trucks do
 
   """
   def list_trucks do
-    Repo.all(Truck)
+    Repo.all(Truck) |> Repo.preload([:locations, :menu_items])
   end
 
   @doc """

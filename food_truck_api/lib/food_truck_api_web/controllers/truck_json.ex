@@ -29,13 +29,13 @@ defmodule FoodTruckApiWeb.TruckJSON do
     }
   end
 
-  defp get_locations(%{locations: %Ecto.Association.NotLoaded{}} = truck), do: truck
+  defp get_locations(%{locations: %Ecto.Association.NotLoaded{}}), do: []
 
   defp get_locations(truck) do
     truck.locations
   end
 
-  defp get_menu_items(%{menu_items: %Ecto.Association.NotLoaded{}} = truck), do: truck
+  defp get_menu_items(%{menu_items: %Ecto.Association.NotLoaded{}}), do: []
 
   defp get_menu_items(truck) do
     truck.menu_items

@@ -43,7 +43,10 @@ defmodule FoodTruckApi.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"},
       {:nimble_csv, "~> 1.1"},
-      {:scrivener, "~> 2.0"}
+      {:scrivener, "~> 2.0"},
+      {:scholar, "~> 0.3.0"},
+      {:exla, ">= 0.0.0"},
+      {:corsica, "~> 2.0"}
     ]
   end
 
