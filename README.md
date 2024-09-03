@@ -83,6 +83,8 @@ Inline-style:
 - run `mix ecto.migrate` to migrate the database
 - run `iex -S mix phx.server` to start the server
 
+**NOTE:** Incase the data is not seeded, run `mix run priv/repo/seeds.exs` to seed the database
+
 #### Testing the backend
 
 - Run `mix test` to run the tests
